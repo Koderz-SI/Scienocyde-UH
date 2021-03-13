@@ -42,6 +42,7 @@
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
+    {% if user.is_authenticated %}
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="index.html">Home</a></li>
                             <li class="scroll-to-section"><a href="about.html" >About</a></li>
@@ -60,6 +61,7 @@
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
+    {% endif %}
                         <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
