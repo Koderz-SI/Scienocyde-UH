@@ -26,22 +26,30 @@
             </div>
         </div>
         {% else %}
-        <div class="welcome-area" id="welcome">
+        
 
         <!-- ***** Header Text Start ***** -->
         <div class="header-text">
             <div class="container">
-                <div class="row">
+                <div class="row" style="padding-top: 6em; padding-left: 10em;">
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-  <p>You are not logged in</p>
+                        <div class="card" style=" width: 50rem; height: 25rem;">
+                         <img src="https://thumbs.dreamstime.com/b/forgot-password-computer-concept-unhappy-man-near-account-login-flat-vector-male-character-design-landing-page-web-poster-184010038.jpg" class="card-img-top" alt="...">
+                       <div class="card-body">
+                       <h3 class="card-title" style="">You are not  logged in</h3>
+    
+                      <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+                   </div>
+               </div>
 
-  <a href="{% url 'login' %}">Log In</a>
+  
 </div>
 </div>
 </div>
 </div>
 </div>
+
 {% endif %}
         <!-- ***** Header Text End ***** -->
 {% endblock %}
