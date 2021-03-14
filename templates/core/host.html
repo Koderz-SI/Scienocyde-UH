@@ -6,10 +6,10 @@
 
 {% block body %}
 
-    
+
     <section class="section" id="about">
         <div class="container">
-          <form>
+         
             <div class="form-page-content ng-pristine   ng-isolate-scope ">
                   <!-- ngRepeat: element in page track by element.identifier --><div data-identifier="field1" data-index="0" style="width: 100%" class=" form-element ">
                     <div class="form-element-html"><div ><div style="background-color:" class="heading-cover field-cover "><div style="text-align: left; font-size: 1.6em; padding-top: 10px; padding-bottom: ; color: #000000" class="bold-"><span >YOUR DETAILS</span></div><input type="hidden" data-field-id="field1" name="field1[]" value="SCHOOL DETAILS"></div></div></div>
@@ -19,161 +19,18 @@
                     <br>
 
 
-                  <div class="form-label">
-                  <label for="validationCustom01">Your Full Name</label>
-                  <input type="text" class="form-control" id="validationCustom01" placeholder="Your Full Name"  required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-
-                <br>
-
-                <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-               <input type="email" class="form-control" id="exampleFormControlInput1" id="validationCustom01"placeholder="name@example.com" required>
-                </div>
-                <br>
-
-                <div class="form-label">
-                  <label for="validationCustom01">Organization/Institution hosting the contest</label>
-                  <input type="text" class="form-control" id="validationCustom01" placeholder=""  required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-
-                <br>
-
-                  <div class="form-label">
-                  <label for="validationCustom01">Type of Organization/Institution</label>
-                  <div class="form-check">
-                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
-                   <label class="form-check-label" for="exampleRadios1"> College/University
-                   </label>
-                   </div><br>
-                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2"> Company/Organization
-                    </label>
-                  </div><br>
-
-                  <div class="form-check">
-                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2"> Others
-                    </label>
-                  </div>
-                  
-                </div>
-
-
-               <br>
-
-               <div class="form-label">
-                  <label for="validationCustom01">Designation</label>
-                  <input type="text" class="form-control" id="validationCustom01" placeholder=""  required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-                <br>
-
-                <div class="form-label">
-                  <label for="validationCustom01">Phone no.</label>
-                  <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control" id="validationCustom01" placeholder=""  required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-
-                <br>
-
-                <div class="form-label">
-                  <label for="validationCustom01">Purpose of Contest</label>
-                  <input type="text" class="form-control" id="validationCustom01" placeholder=""  required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-                <br>
-
-                <br>
-
-                <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Breif detail about your event</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-
-                <br>
-
-                <div class="form-label">
-                  <label for="validationCustom01">Theme of Project</label>
-                  <input type="text" class="form-control" id="validationCustom01" placeholder=""  required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-
-                <br>
-
-                <div class="form-label">
-                  <label for="validationCustom01">Guidelines for submission</label>
-                  <input type="text" class="form-control" id="validationCustom01" placeholder=""  required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-
-                <br>
-
-
-                <label for="exampleFormControlTextarea1" class="form-label">Eligibility Creteria</label>
-                <br>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option selected>Open this select menu    </option>
-                <option value="1">Below 12</option>
-                <option value="2">Below 16</option>
-                 <option value="3">Below 18</option>
-               </select>
-
-               <br><br>
-
-                <div class="form-label">
-                    <label for="validationCustom01">How did you hear about us?</label>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">LinkedIn</label>
+                    <div class="row">
+                    <div class="col-12">
+                     <form class="form-inline justify-content-center " action="host/" method="POST">
+                    {% csrf_token %}
+                     <div class="form-group">
+                     {{form}}
+                    <button type="submit" class="mx-2 btn btn-primary">Submit</button>
+                   </div>
+        
+                  </form>
+                   </div>
                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">Facebook</label>
-                 </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">Twitter</label>
-                 </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">Other</label>
-                 </div>
-                </div>
-
-                <br>
-
-                <div class="form-group">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                      <label class="form-check-label" for="invalidCheck">
-                        Agree to terms and conditions
-                      </label>
-                      <div class="invalid-feedback">
-                        You must agree before submitting.
-                      </div>
-                </div>
-              </div>
-              <button type="submit" class="main-button-slider">Submit</button>
-
-                </form>   
         </div>
     </section>
 
