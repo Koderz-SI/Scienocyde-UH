@@ -44,11 +44,10 @@
                         <!-- ***** Menu Start ***** -->
     {% if user.is_authenticated %}
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index.html">Home</a></li>
-                            <li class="scroll-to-section"><a href="about.html" >About</a></li>
-                            <li class="scroll-to-section"><a href="idea.html" >Idea</a></li>
-                            <li class="scroll-to-section"><a href="project.html" >Projects</a></li>
-                            <li class="scroll-to-section"><a href="contact.html" >Contact Us</a></li>
+                            <li class="scroll-to-section"><a href="/">Home</a></li>
+                            <li class="scroll-to-section"><a href="/core/about" >About</a></li>
+                            <li class="scroll-to-section"><a href="/core/projects" >Projects</a></li>
+                            <li class="scroll-to-section"><a href="/core/contact" >Contact Us</a></li>
                             <li class="scroll-to-section">
                                 <fieldset>
                                   <form method="POST" action="{% url 'logout' %}">

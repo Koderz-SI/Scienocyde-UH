@@ -2,6 +2,22 @@
 {% load static %}
  
 {% block extra_css %}
+<style>
+    .login {
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 10%;
+    }
+
+    /* Add a hover effect for buttons */
+    .login:hover {
+      opacity: 0.8;
+    }
+</style>
 {% endblock %}
 
 {% block body %}
@@ -19,8 +35,8 @@
                         <h1>Welcome to the Science <em>FAIR</em></h1>
                         <p>We welcome you to the most exciting Science Fair ever!</p> 
                         <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
-                        <a href="host.html" class="main-button-slider">Host</a>
-                        <a href="detail.html" class="main-button-slider">Science Fair </a>
+                        <a href="/core/host" class="main-button-slider">Host</a>
+                        <a href="participant.html" class="main-button-slider">Science Fair </a>
                     </div>
                 </div>
             </div>
@@ -38,8 +54,9 @@
                          <img src="https://thumbs.dreamstime.com/b/forgot-password-computer-concept-unhappy-man-near-account-login-flat-vector-male-character-design-landing-page-web-poster-184010038.jpg" class="card-img-top" alt="...">
                        <div class="card-body">
                        <h3 class="card-title" style="">You are not  logged in</h3>
-    
-                      <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+   
+                      <button class="login" style="background-color:#ffa31a;"><a href="{% url 'login' %}" style="color: white;">Log in</a></button>
+                      
                    </div>
                </div>
 

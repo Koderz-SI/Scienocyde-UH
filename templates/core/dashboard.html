@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+ 
+{% block extra_css %}
+
+    <style>
+        th, td {
+            border-bottom: 3px solid rgba(241,85,106,1);
+            border-collapse: collapse;
+            text-align: center;
+            padding: 5px;
+            height: 50px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <section class="section" id="about">
+        <div class="container">
+            <table style="width: 100%;">
+              <tr>
+                <th>S.No.</th>
+                <th>Title</th> 
+                <th>Detail</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Smith</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jackson</td>
+                <td>94</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Doe</td>
+                <td>80</td>
+              </tr>
+            </table>
+        </div>
+    </section>
+
+    
+{% endblock %}
+{% block extra_js %}
+{% endblock %}
