@@ -6,6 +6,7 @@ class Host(models.Model):
     full_name = models.CharField(max_length=150)
     email = models.EmailField(max_length=100)
     org = models.CharField(max_length=200)
+    type_org = models.CharField(max_length=100, default='School')
     designation = models.CharField(max_length=150)
     phone = models.PositiveIntegerField()
     purpose = models.TextField()
@@ -18,6 +19,10 @@ class Host(models.Model):
 
     def __str__(self):
         return self.org
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ['-date']
