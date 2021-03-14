@@ -44,7 +44,6 @@
         {% else %}
         
 
-        <!-- ***** Header Text Start ***** -->
         <div class="header-text">
             <div class="container">
                 <div class="row" style="padding-top: 6em; padding-left: 10em;">
@@ -53,12 +52,15 @@
                         <div class="card" style=" width: 50rem; height: 25rem;">
                          <img src="https://thumbs.dreamstime.com/b/forgot-password-computer-concept-unhappy-man-near-account-login-flat-vector-male-character-design-landing-page-web-poster-184010038.jpg" class="card-img-top" alt="...">
                        <div class="card-body">
-                       <h3 class="card-title" style="">You are not  logged in</h3>
-   
-                      <button class="login" style="background-color:#ffa31a;"><a href="{% url 'login' %}" style="color: white;">Log in</a></button>
+                       <h3 class="card-title" style="padding-bottom: 1em;">You are not  logged in</h3>
+    
                       
+                      <a href="{% url 'login' %}" class="main-button-slider">Log In</a>
+                      
+                      <a href="{% url 'signup' %}" class="main-button-slider">Sign Up</a>
                    </div>
                </div>
+
 
   
 </div>
