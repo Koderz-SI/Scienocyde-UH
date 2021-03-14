@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from core.forms import HostForm
 
 def about(request):
 	template_name = "core/about.html"
@@ -15,4 +16,7 @@ def contact(request):
 
 def host(request):
 	template_name = "core/host.html"
-	return render(request, template_name)
+	form=HostForm()
+	context = {'app_name': "Scienocyde-UH", 'form': form}
+	
+	return render(request, template_name , context=context)
