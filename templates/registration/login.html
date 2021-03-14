@@ -12,10 +12,12 @@
         }
 
         /* Full-width inputs */
-        input[type=text], input[type=password] {
-          width: 100%;
+        input[type=text], input[type=password] 
+        {
+          width: 80%;
           padding: 12px 20px;
-          margin: 8px 0;
+
+          margin: 10px 0;
           display: inline-block;
           border: 1px solid #ccc;
           box-sizing: border-box;
@@ -29,7 +31,7 @@
           margin: 8px 0;
           border: none;
           cursor: pointer;
-          width: 100%;
+          width: 10%;
         }
 
         /* Add a hover effect for buttons */
@@ -76,35 +78,20 @@
     </style>
     {% endblock %}
 
-{% block body %}
-
-
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            Scienocyde
-                        </a>
-                        
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+    {% block body %}
     <!-- ***** Header Area End ***** -->
     <!-- ***** Features Big Item Start ***** -->
     <section class="section" id="about">
-        
+      <div class="container">
         <h2>Log In</h2>
-		<form method="post">
-		  {% csrf_token %}
-		  {{ form.as_p }}
-		  <button type="submit">Log In</button>
-		</form>
+    		<form method="post">
+    		  {% csrf_token %}
+    		  {{ form.as_p }}
+    		  <button type="submit" style="background-color:#ffa31a;">Log In</button>
+    		</form>
+        <p>Or click here to sign up!</p>
+        <button style="background-color:#ffa31a;"><a href="{% url 'signup' %}" style="color: white;">Sign up</a></button>
+      </div>
     </section>
     <!-- ***** Features Big Item End ***** -->
 {% endblock %}
