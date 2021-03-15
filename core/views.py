@@ -20,3 +20,14 @@ def host(request):
 	context = {'app_name': "Scienocyde-UH", 'form': form}
 	
 	return render(request, template_name , context=context)
+
+def add_host(request):
+    if request.method == 'POST':
+        # save the todo
+        form = HostForm(request.POST)
+        if form.is_valid():
+            todo_text = form.cleaned_data.get('todo_text')
+            ToDo.objects.create(todo_text=todo_text)
+    
+    return redirect('')
+
