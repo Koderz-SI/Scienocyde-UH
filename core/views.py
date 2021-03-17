@@ -37,6 +37,11 @@ def add_host(request):
         	Theme_of_Project = form.cleaned_data.get('Theme_of_Project')
         	Guidelines_for_submission = form.cleaned_data.get('Guidelines_for_submission')
         	Eligibility_Creteria = form.cleaned_data.get('Eligibility_Creteria')
-        	Host.objects.create(Your_Full_Name=Your_Full_Name, Email_address=Email_address, Organization_hosting_the_contest=Organization_hosting_the_contest, Type_of_Organization=Type_of_Organization, Designation=Designation, Phone_no=Phone_no, Purpose_of_Contest=Purpose_of_Contest, Breif_detail_about_your_event=Breif_detail_about_your_event, Theme_of_Project=Theme_of_Project, Guidelines_for_submission=Guidelines_for_submission, Eligibility_Creteria=Eligibility_Creteria)
+
+        	Host.objects.create(full_name=Your_Full_Name, email=Email_address, org=Organization_hosting_the_contest, type_org=Type_of_Organization, designation=Designation, phone=Phone_no, purpose=Purpose_of_Contest, detail=Breif_detail_about_your_event, theme=Theme_of_Project, guidelines=Guidelines_for_submission, elig_cri=Eligibility_Creteria)
         	
-        	return redirect('')
+    return redirect('host_dashboard')
+
+def host_dashboard(request):
+	template_name = "core/dashboard.html"
+	return render(request, template_name)
