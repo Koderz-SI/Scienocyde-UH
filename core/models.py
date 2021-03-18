@@ -14,15 +14,10 @@ class Host(models.Model):
     theme = models.CharField(max_length=250)
     guidelines = models.TextField()
     elig_cri = models.TextField()
-    slug = models.SlugField(max_length=50)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.org
-
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ['-date']
