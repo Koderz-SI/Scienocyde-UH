@@ -1,5 +1,5 @@
 from django.urls import path
-from core.views import about, projects, contact, host, add_host
+from core.views import about, projects, contact, host, add_host, host_dashboard
 
 urlpatterns = [
     path('about/', about, name='about'),
@@ -7,4 +7,5 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('host/', host, name='host'),
     path('host/add_host/', add_host, name='add_host'),
+    path('host_dashboard/', host_dashboard, name='host_dashboard'),
 ]
