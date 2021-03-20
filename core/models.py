@@ -22,3 +22,37 @@ class Host(models.Model):
 
     class Meta:
         ordering = ['-date']
+
+
+class Participant(models.Model):
+    # id = models.AutoField(primary_key=True)
+    School_Name = models.CharField(max_length=50)
+    School_Phone_no = models.CharField(max_length=150)
+    School_Email_address = models.EmailField(max_length=100)
+    School_Address = models.CharField(max_length=200)
+    State = models.CharField(max_length=100, )
+    Student_Name_1 = models.CharField(max_length=50)
+    Contact_no1 = models.CharField(max_length=150)
+    Email_address1 = models.EmailField(max_length=100)
+    House_Address1 = models.CharField(max_length=200)
+    gender1 = models.CharField(max_length=100)
+    Student_Name_2 = models.CharField(max_length=50)
+    Contact_no2 = models.CharField(max_length=150)
+    Email_address2 = models.EmailField(max_length=100)
+    House_Address2 = models.CharField(max_length=200)
+    Gender2 = models.CharField(max_length=100)
+    Title_of_your_project = models.CharField(max_length=200)
+    Question_or_Problem = models.CharField(max_length=100)
+    Hypothesis_or_possible_solution = models.CharField(max_length=50)
+    Materials_needed= models.CharField(max_length=150)
+    Results = models.EmailField(max_length=100)
+    Image_of_Project = models.CharField(max_length=200)
+    Link_of_your_project = models.CharField(max_length=100)
+    
+
+    
+    def __str__(self):
+        return self.schl_name
+
+    
+
