@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from core.models import Host
 from django.contrib.auth.models import User
 from core.forms import HostForm
+from core.forms import ParticipantForm
 
 
 def about(request):
@@ -26,7 +27,6 @@ def host(request):
     context = {"app_name": "Scienocyde-UH-1", "form": form}
 
     return render(request, template_name, context=context)
-
 
 def add_host(request):
     username = request.user.get_username()
@@ -74,3 +74,19 @@ def host_dashboard(request):
     template_name = "core/dashboard.html"
     context = {"host_obj": host_obj, "username": username}
     return render(request, template_name, context)
+
+def applyto(request):
+    template_name = "core/applyto.html"
+    return render(request, template_name)
+
+def detail(request):
+    template_name = "core/detail.html"
+    return render(request, template_name)
+
+def participant(request):
+    template_name = "core/participant.html"
+    form = ParticipantForm()
+    context = {"app_name": "Scienocyde-UH-1", "form": form}
+
+    return render(request, template_name, context=context)
+
