@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from core.models import Host
-from django.contrib.auth.models import User
 from core.forms import HostForm
+from core.models import Participant
 from core.forms import ParticipantForm
+from django.contrib.auth.models import User
+
 
 
 def about(request):
@@ -66,6 +68,52 @@ def add_host(request):
             )
 
     return redirect("host_dashboard")
+
+def add_participant(request):
+    username = request.user.get_username()
+    if request.method == "POST":
+        form = ParticipantForm(request.POST)
+        if form.is_valid():
+            School_Name = form.cleaned_data.get("School_Name")
+            School_Phone_no = form.cleaned_data.get("School_Phone_no")
+            School_Email_address = form.cleaned_data.get("School_Email_address")
+            School_Address = form.cleaned_data.get("School_Address")
+            State = form.cleaned_data.get("State")
+            Student_Name_1 = form.cleaned_data.get("Student_Name_1")
+            Contact_no = form.cleaned_data.get("Contact_no ")
+            Email_address = form.cleaned_data.get("Email_address")
+            House_Address = form.cleaned_data.get("House_Address")
+            Gender = form.cleaned_data.get( "Gender" )
+            Student_Name_2 = form.cleaned_data.get("Student_Name_2")
+            Contact_no_2 = form.cleaned_data.get("Contact_no_2")
+            Email_address_2 = form.cleaned_data.get("Email_address_2")
+            House_Address_2 = form.cleaned_data.get("House_Address_2")
+            Gender_2 = form.cleaned_data.get( "Gender_2" )
+            Title_of_your_project = form.cleaned_data.get("Title_of_your_project")
+            Question_or_Problem = form.cleaned_data.get("Question_or_Problem")
+            Hypothesis_or_possible_solution = form.cleaned_data.get("Hypothesis_or_possible_solution")
+            Materials_needed = form.cleaned_data.get("House_Address")
+            Results = form.cleaned_data.get( "Results" )
+            Image_of_Project=form.cleaned_data.get( "Image_of_Project" )
+            Participant.objects.create(
+                School_Name=School_Name,
+                School_Phone_no=School_Phone_no,
+                School_Email_address=School_Email_address,
+                School_Address=School_Address,
+                State=State,
+                Student_Name_1=Student_Name_1,
+                Contact_no_1=Contact_no,
+                Email_address_1=Email_address,
+                House_Address_1=House_Address,
+                Gender_1=Gender,
+                Student_Name_2=Student_Name_2,
+                Contact_no_2=Contact_no_2,
+                Email_address_2=Email_address_2,
+                House_Address_2=House_Address_2,
+                Gender_2=Gender_2,
+            )
+
+    return redirect("detail")
 
 
 def host_dashboard(request):
