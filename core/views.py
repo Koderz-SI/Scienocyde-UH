@@ -1,11 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from core.models import Host
-from core.forms import HostForm
-from core.models import Participant
-from core.forms import ParticipantForm
+from core.models import Host, Participant
+from core.forms import HostForm, ParticipantForm
 from django.contrib.auth.models import User
-
 
 
 def about(request):
@@ -29,6 +26,7 @@ def host(request):
     context = {"app_name": "Scienocyde-UH-1", "form": form}
 
     return render(request, template_name, context=context)
+
 
 def add_host(request):
     username = request.user.get_username()
@@ -69,7 +67,9 @@ def add_host(request):
 
     return redirect("host_dashboard")
 
-def add_participant(request):
+
+def add_participant(request, host_id):
+    host_id = host_id
     username = request.user.get_username()
     if request.method == "POST":
         form = ParticipantForm(request.POST)
@@ -83,19 +83,22 @@ def add_participant(request):
             Contact_no = form.cleaned_data.get("Contact_no ")
             Email_address = form.cleaned_data.get("Email_address")
             House_Address = form.cleaned_data.get("House_Address")
-            Gender = form.cleaned_data.get( "Gender" )
+            Gender = form.cleaned_data.get("Gender")
             Student_Name_2 = form.cleaned_data.get("Student_Name_2")
             Contact_no_2 = form.cleaned_data.get("Contact_no_2")
             Email_address_2 = form.cleaned_data.get("Email_address_2")
             House_Address_2 = form.cleaned_data.get("House_Address_2")
-            Gender_2 = form.cleaned_data.get( "Gender_2" )
+            Gender_2 = form.cleaned_data.get("Gender_2")
             Title_of_your_project = form.cleaned_data.get("Title_of_your_project")
             Question_or_Problem = form.cleaned_data.get("Question_or_Problem")
-            Hypothesis_or_possible_solution = form.cleaned_data.get("Hypothesis_or_possible_solution")
+            Hypothesis_or_possible_solution = form.cleaned_data.get(
+                "Hypothesis_or_possible_solution"
+            )
             Materials_needed = form.cleaned_data.get("House_Address")
-            Results = form.cleaned_data.get( "Results" )
-            Image_of_Project=form.cleaned_data.get( "Image_of_Project" )
+            Results = form.cleaned_data.get("Results")
+            Image_of_Project = form.cleaned_data.get("Image_of_Project")
             Participant.objects.create(
+                username=username,
                 School_Name=School_Name,
                 School_Phone_no=School_Phone_no,
                 School_Email_address=School_Email_address,
@@ -111,9 +114,10 @@ def add_participant(request):
                 Email_address_2=Email_address_2,
                 House_Address_2=House_Address_2,
                 Gender_2=Gender_2,
+                host_id=host_id,
             )
 
-    return redirect("detail")
+    return redirect("projects")
 
 
 def host_dashboard(request):
@@ -123,18 +127,26 @@ def host_dashboard(request):
     context = {"host_obj": host_obj, "username": username}
     return render(request, template_name, context)
 
-def applyto(request):
-    template_name = "core/applyto.html"
-    return render(request, template_name)
 
 def detail(request):
     template_name = "core/detail.html"
-    return render(request, template_name)
+    hosts = Host.objects.all()
+    context = {"hosts": hosts}
+    return render(request, template_name, context)
 
-def participant(request):
+
+def applyto(request, host_id):
+    host_id = host_id
+    template_name = "core/applyto.html"
+    host_obj = Host.objects.get(pk=host_id)
+    context = {"host_obj": host_obj, "host_id": host_id}
+    return render(request, template_name, context)
+
+
+def participant(request, host_id):
+    host_id = host_id
     template_name = "core/participant.html"
     form = ParticipantForm()
-    context = {"app_name": "Scienocyde-UH-1", "form": form}
+    context = {"form": form, "host_id": host_id}
 
     return render(request, template_name, context=context)
-

@@ -21,7 +21,7 @@
                     <table >
                     <div class="row">
                     <div class="col-12">
-                     <form class="form-inline justify-content-left " action="add_participant/" method="POST">
+                     <form class="form-inline justify-content-left " action="{% url 'add_participant' host_id %}" method="POST" >
                     {% csrf_token %}
                      
                         <div class="form-group" >
