@@ -23,7 +23,7 @@ def contact(request):
 def host(request):
     template_name = "core/host.html"
     form = HostForm()
-    context = {"app_name": "Scienocyde-UH-1", "form": form}
+    context = {"form": form}
 
     return render(request, template_name, context=context)
 
@@ -65,7 +65,15 @@ def add_host(request):
                 elig_cri=Eligibility_Creteria,
             )
 
-    return redirect("host_dashboard")
+    return redirect("/")
+
+
+def host_dashboard(request, username):
+    username = username
+    host_obj = Host.objects.get(username=username)
+    template_name = "core/dashboard.html"
+    context = {"host_obj": host_obj}
+    return render(request, template_name, context)
 
 
 def add_participant(request, host_id):
@@ -97,6 +105,7 @@ def add_participant(request, host_id):
             Materials_needed = form.cleaned_data.get("House_Address")
             Results = form.cleaned_data.get("Results")
             Image_of_Project = form.cleaned_data.get("Image_of_Project")
+            Link_of_your_project = form.cleaned_data.get("Link_of_your_project")
             Participant.objects.create(
                 username=username,
                 School_Name=School_Name,
@@ -114,18 +123,17 @@ def add_participant(request, host_id):
                 Email_address_2=Email_address_2,
                 House_Address_2=House_Address_2,
                 Gender_2=Gender_2,
+                Title_of_your_project=Title_of_your_project,
+                Question_or_Problem=Question_or_Problem,
+                Hypothesis_or_possible_solution=Hypothesis_or_possible_solution,
+                Materials_needed=Materials_needed,
+                Results=Results,
+                Image_of_Project=Image_of_Project,
+                Link_of_your_project=Link_of_your_project,
                 host_id=host_id,
             )
 
     return redirect("projects")
-
-
-def host_dashboard(request):
-    username = request.user.get_username()
-    host_obj = Host.objects.get(username=username)
-    template_name = "core/dashboard.html"
-    context = {"host_obj": host_obj, "username": username}
-    return render(request, template_name, context)
 
 
 def detail(request):

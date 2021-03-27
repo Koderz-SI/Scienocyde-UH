@@ -155,9 +155,11 @@ class ParticipantForm(forms.Form):
     Results = forms.CharField(
         widget=forms.TextInput(attrs={"class": "form-control inp", "placeholder": ""})
     )
-    Image_of_Project = forms.CharField(
+    Image_of_Project = forms.ImageField(
         widget=forms.ClearableFileInput(
             attrs={"class": "form-control inp", "placeholder": ""}
         )
     )
-    # Link_of_your_project= forms.CharField(widget=forms.URLField(attrs={'class': 'form-control inp','placeholder':''}))
+    Link_of_your_project = forms.URLField(
+        widget=forms.URLInput(attrs={"class": "form-control inp"})
+    )
