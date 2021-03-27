@@ -31,6 +31,15 @@
           <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
           <a href="/core/host" class="main-button-slider">Host</a>
           <a href="/core/detail" class="main-button-slider">Science Fair </a>
+          <br />
+          {% if host_obj %}
+          <a
+            href="{% url 'host_dashboard' username %}"
+            class="main-button-slider"
+          >
+            Dashboard
+          </a>
+          {% endif %}
         </div>
       </div>
     </div>
